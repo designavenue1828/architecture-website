@@ -10,7 +10,7 @@ import Contact from './pages/Contact';
 
 const App: React.FC = () => {
   return (
-    <Router>
+    <Router basename={import.meta.env.BASE_URL.replace(/\/$/, '')}>
       <Header />
       <main>
         <Routes>
