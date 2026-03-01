@@ -20,3 +20,49 @@
     max-width: 700px;
     margin: 0 auto;
 }
+
+/* Reel Section */
+.reel-wrapper {
+    position: relative;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.reel-video {
+    width: 100%;
+    display: block;
+    border-radius: var(--border-radius-lg);
+}
+
+.play-btn {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(10, 10, 20, 0.35);
+    border: none;
+    cursor: pointer;
+    transition: background var(--transition-base);
+}
+
+.play-btn:hover {
+    background: rgba(10, 10, 20, 0.5);
+}
+
+.play-icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    font-size: 2rem;
+    color: #fff;
+    padding-left: 6px;
+    box-shadow: var(--shadow-xl);
+}
