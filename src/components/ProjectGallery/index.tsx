@@ -9,48 +9,50 @@ interface Project {
     image: string;
 }
 
+const BASE = import.meta.env.BASE_URL;
+
 const projects: Project[] = [
     {
         id: 1,
-        title: 'Modern Residential Villa',
+        title: 'Luxury Residence',
         category: 'Residential',
-        year: '2023',
-        image: 'gradient-1'
+        year: '2024',
+        image: `${BASE}assets/projects/project-1.jpg`
     },
     {
         id: 2,
-        title: 'Corporate Office Tower',
-        category: 'Commercial',
+        title: 'Modern Villa',
+        category: 'Residential',
         year: '2023',
-        image: 'gradient-2'
+        image: `${BASE}assets/projects/project-2.jpg`
     },
     {
         id: 3,
-        title: 'Urban Mixed-Use Development',
-        category: 'Urban Planning',
-        year: '2022',
-        image: 'gradient-3'
+        title: 'Corporate Complex',
+        category: 'Commercial',
+        year: '2023',
+        image: `${BASE}assets/projects/project-3.jpg`
     },
     {
         id: 4,
-        title: 'Sustainable Community Center',
-        category: 'Public',
-        year: '2022',
-        image: 'gradient-4'
+        title: 'Drawing Room Interior',
+        category: 'Interior',
+        year: '2025',
+        image: `${BASE}assets/projects/project-4.jpg`
     },
     {
         id: 5,
-        title: 'Luxury Apartment Complex',
-        category: 'Residential',
-        year: '2023',
-        image: 'gradient-5'
+        title: 'Master Bedroom Suite',
+        category: 'Interior',
+        year: '2024',
+        image: `${BASE}assets/projects/project-5.jpg`
     },
     {
         id: 6,
-        title: 'Innovation Hub',
-        category: 'Commercial',
+        title: 'Bedroom Suite',
+        category: 'Interior',
         year: '2024',
-        image: 'gradient-6'
+        image: `${BASE}assets/projects/project-6.jpg`
     }
 ];
 
@@ -59,7 +61,9 @@ const ProjectGallery: React.FC = () => {
         <div className="project-gallery grid grid-3">
             {projects.map((project) => (
                 <div key={project.id} className="project-card glass-card">
-                    <div className={`project-image ${project.image}`}></div>
+                    <div className="project-image">
+                        <img src={project.image} alt={project.title} />
+                    </div>
                     <div className="project-info">
                         <span className="project-category">{project.category}</span>
                         <h3 className="project-title">{project.title}</h3>

@@ -2,12 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
+const BASE = import.meta.env.BASE_URL;
+
 const Home: React.FC = () => {
     return (
         <div className="home-page">
             {/* Hero Section */}
             <section className="hero">
-                <div className="hero-background"></div>
+                <div
+                    className="hero-background"
+                    style={{ backgroundImage: `url(${BASE}assets/projects/hero.jpg)` }}
+                ></div>
                 <div className="container">
                     <div className="hero-content animate-fade-in">
                         <h1 className="hero-title">

@@ -12,36 +12,19 @@
     height: 300px;
     border-radius: var(--border-radius-md);
     margin-bottom: var(--spacing-md);
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
     transition: transform var(--transition-base);
 }
 
-.project-card:hover .project-image {
+.project-card:hover .project-image img {
     transform: scale(1.05);
-}
-
-/* Gradient Placeholders */
-.gradient-1 {
-    background: var(--gradient-primary);
-}
-
-.gradient-2 {
-    background: var(--gradient-secondary);
-}
-
-.gradient-3 {
-    background: var(--gradient-accent);
-}
-
-.gradient-4 {
-    background: var(--gradient-warm);
-}
-
-.gradient-5 {
-    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-}
-
-.gradient-6 {
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
 }
 
 .project-info {
