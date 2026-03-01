@@ -1,0 +1,35 @@
+.services-page {
+    padding-top: 80px;
+}
+
+.process-section {
+    padding: var(--spacing-3xl);
+    text-align: center;
+}
+
+.process-steps {
+    width: 100%;
+}
+
+.process-step {
+    padding: var(--spacing-lg);
+}
+
+.step-number {
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--spacing-md);
+}
+
+.process-step h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-sm);
+}
+
+.process-step p {
+    color: var(--color-text-secondary);
+}

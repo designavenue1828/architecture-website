@@ -1,0 +1,25 @@
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-message {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    text-align: center;
+    font-weight: 500;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.form-message.success {
+    background: rgba(76, 175, 80, 0.1);
+    border: var(--border-width) solid rgba(76, 175, 80, 0.3);
+    color: #4caf50;
+}
+
+.form-message.error {
+    background: rgba(244, 67, 54, 0.1);
+    border: var(--border-width) solid rgba(244, 67, 54, 0.3);
+    color: #f44336;
+}
