@@ -14,67 +14,66 @@ interface ReelItem {
     featured?: boolean;
 }
 
+// Ordered longest → shortest (by file size)
 const reels: ReelItem[] = [
     {
         id: 1,
-        title: 'Interior Design Reel',
-        description: 'Luxury interiors — a curated showcase',
+        title: 'Interior Design Showcase',
+        description: 'A curated walkthrough of luxury residential & office interiors — living rooms, bedrooms, dining spaces and more.',
         src: r('reel-01.mp4'),
         poster: p('nd-liv-01.jpg'),
         featured: true,
     },
     {
-        id: 2,
-        title: 'Modern Villa — Walkthrough I',
-        description: 'Exterior & entrance tour',
-        src: r('reel-02.mp4'),
-        poster: p('cp-ext-01.jpg'),
-    },
-    {
-        id: 3,
-        title: 'Modern Villa — Walkthrough II',
-        description: 'Ground floor interiors',
-        src: r('reel-03.mp4'),
-        poster: p('cp-rec-02.jpg'),
-    },
-    {
-        id: 4,
-        title: 'Modern Villa — Walkthrough III',
-        description: 'Living spaces & details',
-        src: r('reel-04.mp4'),
-        poster: p('cp-liv-02.jpg'),
-    },
-    {
-        id: 5,
-        title: 'Modern Villa — Walkthrough IV',
-        description: 'Upper floors & terrace',
-        src: r('reel-05.mp4'),
-        poster: p('cp-stair-01.jpg'),
-    },
-    {
-        id: 6,
-        title: 'Modern Villa — Walkthrough V',
-        description: 'Foyer & corridor',
-        src: r('reel-06.mp4'),
-        poster: p('cp-cor-01.jpg'),
-    },
-    {
         id: 7,
-        title: 'Modern Villa — Full Tour',
-        description: 'Complete project walkthrough',
+        title: 'Modern Villa — Full Walkthrough',
+        description: 'End-to-end tour of a completed modern villa: exterior, foyer, double-height lobby, living spaces and upper floors.',
         src: r('reel-07.mp4'),
         poster: p('cp-foy-01.jpg'),
         featured: true,
     },
+    {
+        id: 4,
+        title: 'Modern Villa — Living Spaces',
+        description: 'Walkthrough of the living room, TV wall and open-plan areas with custom woodwork and marble flooring.',
+        src: r('reel-04.mp4'),
+        poster: p('cp-liv-02.jpg'),
+    },
+    {
+        id: 2,
+        title: 'Modern Villa — Exterior & Entrance',
+        description: 'Night view of the exterior façade, decorative gate, and entrance approach with landscape lighting.',
+        src: r('reel-02.mp4'),
+        poster: p('cp-ext-01.jpg'),
+    },
+    {
+        id: 5,
+        title: 'Modern Villa — Staircase & Upper Floor',
+        description: 'Floating wooden staircase, upper-level corridor and terrace access.',
+        src: r('reel-05.mp4'),
+        poster: p('cp-stair-01.jpg'),
+    },
+    {
+        id: 3,
+        title: 'Modern Villa — Lobby & Reception',
+        description: 'Double-height reception lobby with pendant lighting, green sofas and geometric marble floor pattern.',
+        src: r('reel-03.mp4'),
+        poster: p('cp-rec-02.jpg'),
+    },
+    {
+        id: 6,
+        title: 'Modern Villa — Foyer & Corridor',
+        description: 'Biophilic entrance corridor with pebble water feature, tropical plants and wooden ceiling.',
+        src: r('reel-06.mp4'),
+        poster: p('cp-cor-01.jpg'),
+    },
 ];
 
-const ReelPage: React.FC = () => {
+const WalkthroughPage: React.FC = () => {
     const [active, setActive] = useState<number | null>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
 
-    const openReel = (id: number) => {
-        setActive(id);
-    };
+    const openReel = (id: number) => setActive(id);
 
     const closeReel = () => {
         videoRef.current?.pause();
@@ -83,7 +82,10 @@ const ReelPage: React.FC = () => {
 
     useEffect(() => {
         if (active === null) return;
-        videoRef.current?.play().catch(() => {});
+        if (videoRef.current) {
+            videoRef.current.muted = true;
+            videoRef.current.play().catch(() => {});
+        }
         const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') closeReel(); };
         document.addEventListener('keydown', onKey);
         document.body.style.overflow = 'hidden';
@@ -99,9 +101,9 @@ const ReelPage: React.FC = () => {
         <div className="reel-page">
             <div className="page-header">
                 <div className="container">
-                    <h1 className="page-title">Reels</h1>
+                    <h1 className="page-title">Walkthroughs</h1>
                     <p className="page-description">
-                        Video walkthroughs and design showcases of our completed projects.
+                        Video walkthroughs of our completed projects and interior design showcases.
                     </p>
                 </div>
             </div>
@@ -142,6 +144,7 @@ const ReelPage: React.FC = () => {
                             src={activeReel.src}
                             poster={activeReel.poster}
                             controls
+                            muted
                             playsInline
                             className="reel-lightbox-video"
                         />
@@ -156,4 +159,4 @@ const ReelPage: React.FC = () => {
     );
 };
 
-export default ReelPage;
+export default WalkthroughPage;

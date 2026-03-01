@@ -58,7 +58,7 @@ const Header: React.FC = () => {
                                     className={`nav-link ${isActive('/reels') ? 'active' : ''}`}
                                     onClick={() => setIsMenuOpen(false)}
                                 >
-                                    Reels
+                                    Walkthroughs
                                 </Link>
                             </li>
                             <li>
